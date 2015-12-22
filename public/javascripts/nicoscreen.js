@@ -102,7 +102,6 @@ r9.NicoScreen = {
 		this.elm.bind("selectstart",function(){return false;});
 		this.elm.bind("mousedown",function(){return false;});
 		
-		
 		this.env.width = ""+elm.css("width");
 		this.env.height = ""+elm.css("height");
 		

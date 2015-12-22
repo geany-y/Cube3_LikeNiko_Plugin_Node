@@ -1,6 +1,7 @@
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
+var setting = require('config');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
@@ -63,7 +64,7 @@ app.use(function(err, req, res, next) {
 });
 
 
-app.set('port', process.env.PORT || 7960);
+app.set('port', process.env.PORT || setting.config.port);
 
 //サーバー生成
 server.listen(app.get('port'), function() {

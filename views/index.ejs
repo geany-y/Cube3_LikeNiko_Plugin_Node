@@ -7,12 +7,10 @@
 		<script src="/socket.io/socket.io.js"></script>
 		<script src="/javascripts/jquery.js"></script>
 		<script src="/javascripts/nicoscreen.js"></script>
-       
-		<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script> -->
 	</head>
 	<body>
-       <div id="nicoscreen" style="width:1120px;height:448px;">
-            <img src="/images/mv01.jpg" style="width:1120px;height:480px">
+    <div id="nicoscreen" style="width='<%= width %>';height='<%= height %>;">
+        <img src="/images/mv01.jpg" style="width='<%= width %>';height='<%= height %>;">
        </div> 
 		<script type="text/javascript">
         (function($){
@@ -33,18 +31,17 @@
         
         
 			//websocket開始
-			var socket = io.connect('http://www.les-tournesol.com:7960');
-			    socket.on('connect', function() {});
-			//PHPの通信データ
-			socket.on('ordershow', function(data) {
-				if(data){
-					console.log(data.orders);
+            var socket = io.connect('<%= url %>');
+            socket.on('connect', function() {});
+            //PHPの通信データ
+            socket.on('ordershow', function(data) {
+                if(data){
+                    console.log(data.orders);
                     nicoscreen.add(data.orders);
-                    //$('#order').append('<p>' + data.orders + '</p>');
-				}
-			});
-			socket.on('disconnect', function(){
-			});
+                }
+            });
+            socket.on('disconnect', function(){
+            });
         })(jQuery);
 		</script>
 	</body>
