@@ -1,5 +1,0 @@
-config:
-    nodeurl: "http://www.les-tournesol.com"
-    port: "7960"
-    canvas_width: "1087"
-    canvas_height: "435"

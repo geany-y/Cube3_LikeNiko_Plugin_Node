@@ -11,6 +11,7 @@ var debug = require('debug')('order_show');
 
 var routes = require('./routes/index');
 var order = require('./routes/order');
+var config = require('./routes/config');
 
 var app = express();
 var server = http.createServer(app);
@@ -29,8 +30,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //ルーティング
-app.use('/', routes);                       //クライアント表示画面
-app.use('/fromorder', order);         //PHPのリクエスト受け付け
+app.use('/', routes);                   //クライアント表示画面
+app.use('/fromorder', order);           //PHPからニココメント取得
+app.use('/setnikoconf', config);        //PHPからニコの基本情報取得
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
